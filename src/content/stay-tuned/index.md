@@ -6,4 +6,5 @@ description: Transforming the landscape of digital automation. The next chapter 
 page_title: ADAPro
 ---
 
-Transforming the landscape of digital automation. The next chapter in high-tech measurement is about to unfold
+Transforming the landscape of digital automation.<br />
+The next chapter in high-tech measurement is about to unfold.
