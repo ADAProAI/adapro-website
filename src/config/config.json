@@ -1,14 +1,14 @@
 {
   "site": {
-    "title": "Pinwheel Astro",
-    "base_url": "https://pinwheel-astro.vercel.app",
+    "title": "ADAPro",
+    "base_url": "https://adapro.ai",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
     "logo_width": "147",
     "logo_height": "31",
-    "logo_text": "Pinwheel"
+    "logo_text": "ADAPro"
   },
 
   "settings": {
@@ -42,8 +42,8 @@
   },
 
   "metadata": {
-    "meta_author": "Themefisher",
-    "meta_image": "/images/og-image.png",
-    "meta_description": "pinwheel astro"
+    "meta_author": "CallMeLaNN",
+    "meta_image": "/images/favicon.png",
+    "meta_description": "Transforming the landscape of digital automation. The next chapter in high-tech measurement is about to unfold"
   }
 }

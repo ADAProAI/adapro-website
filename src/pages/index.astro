@@ -1,25 +1,56 @@
 ---
-import Base from "@/layouts/Base.astro";
-import Banner from "@/layouts/components/Banner.astro";
-import KeyFeatures from "@/layouts/components/KeyFeatures.astro";
-import Testimonial from "@/layouts/components/Testimonial.astro";
-import Service from "@/layouts/components/Service.astro";
-import Cta from "@/layouts/partials/Cta.astro";
-import { getEntryBySlug } from "astro:content";
+import BaseFull from "@/layouts/BaseFull.astro";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getEntry } from "astro:content";
 
-const homepage = await getEntryBySlug("homepage", "index");
-const { banner, key_features, service, testimonial } = homepage.data;
+const stay_tuned = await getEntry("stay-tuned", "index");
+const page_data = {
+  ...stay_tuned.data,
+  content: stay_tuned.body,
+};
 ---
 
-<Base>
-  <!-- banner -->
-  <Banner banner={banner} />
-  <!-- key features -->
-  <KeyFeatures key_features={key_features} />
-  <!-- service -->
-  <Service service={service} />
-  <!-- testimonial -->
-  <Testimonial testimonial={testimonial} />
-  <!-- call to action -->
-  <Cta />
-</Base>
+<BaseFull
+  title={stay_tuned.data.title}
+  meta_title={stay_tuned.data.meta_title}
+  description={stay_tuned.data.description}
+  image={stay_tuned.data.image}
+>
+  <section class="page-hero pb-14 pt-16">
+    <div class="container">
+      <div class="page-hero-content mx-auto max-w-[883px] text-center">
+        <div class="text-center">
+          <h1
+            class="mb-5 mt-8"
+            set:html={markdownify(
+              page_data?.page_title ? page_data?.page_title : page_data?.title
+            )}
+          />
+          <p set:html={markdownify(page_data?.content)} />
+
+          {
+            page_data.buttons && (
+              <div class="mt-11 justify-center sm:flex">
+                {page_data.buttons.map(
+                  (button: any) =>
+                    button?.enable && (
+                      <a
+                        class={`btn m-3 block sm:inline-block ${
+                          button?.outline
+                            ? "btn-outline-primary"
+                            : "btn-primary"
+                        } `}
+                        href={button?.link}
+                      >
+                        {button?.label}
+                      </a>
+                    )
+                )}
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseFull>
