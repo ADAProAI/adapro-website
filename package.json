@@ -1,10 +1,13 @@
 {
   "name": "adapro-website",
   "version": "2.0.0",
-  "description": "Astro and Tailwindcss boilerplate",
-  "author": "themefisher",
+  "description": "ADAPro website",
+  "author": {
+    "name": "CallMeLaNN",
+    "url": "https://github.com/CallMeLaNN"
+  },
   "license": "MIT",
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "pnpm@9.7.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
